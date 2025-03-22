@@ -11,7 +11,6 @@ This tool was developed for **red teaming** and **defensive testing** purposes, 
 - Shellcode is loaded from an external binary file (`config.bin`) to avoid hardcoded payloads.
 - The payload is **XOR-obfuscated** to evade basic static detection mechanisms.
 - Direct use of **Windows API calls** through P/Invoke and unmanaged function pointers.
-- Shellcode is executed **in-memory** without writing any executable to disk.
 - Compatible with **MSBuild LOLBin** execution, making it suitable for evasion and offensive simulation.
 
 ---
@@ -77,16 +76,6 @@ This tool was developed for **red teaming** and **defensive testing** purposes, 
 | **TA0002 - Execution** | Achieving code execution via LOLBin |
 | **TA0005 - Defense Evasion** | Avoiding detection via obfuscation and in-memory execution |
 | **TA0011 - Command and Control** | Reverse shell interaction post-execution via payload (not handled by this script) |
-
----
-
-## RFC 2119 Compliance
-
-This documentation uses the following keywords as defined in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt):
-
-- **MUST**: Indicates a requirement that is mandatory for correct or safe usage.
-- **SHOULD**: Indicates a recommended step, but not strictly required.
-- **MAY**: Indicates an optional behavior or condition.
 
 ---
 
