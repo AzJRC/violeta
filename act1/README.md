@@ -6,6 +6,8 @@ This repository contains a proof-of-concept red team activity that demonstrates 
 
 The payload establishes a reverse HTTPS connection to a Metasploit C2 server. This technique aligns with [T1127.001 – Trusted Developer Utilities Proxy Execution: MSBuild](https://attack.mitre.org/techniques/T1127/001/) and is intended for educational and research purposes in a controlled environment.
 
+    You can refer to [this video](https://youtu.be/E3ygajc9rsM) to see how I pursued the attack in a controlled environment.
+
 ## Disclaimer
 
 This project is intended **strictly for educational and authorized security research purposes**. All activities must be conducted in a controlled, isolated environment with proper authorization.
