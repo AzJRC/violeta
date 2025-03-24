@@ -125,3 +125,24 @@ To detect and mitigate techniques demonstrated in this proof of concept, defende
 - Inspect outbound HTTPS traffic for patterns resembling reverse shell connections
 - Use proxy logging and TLS inspection (where appropriate) to monitor C2-like behavior
 - Monitor Windows Defender and Event Viewer logs for behavior-based detections
+
+## Offensive Recommendations
+
+The following areas of improvement have been identified, that could be interesting to test in the future for more advanced malware with Bypassing techniques.
+
+|              **Suggested improvements**              |                                   **Justification**                                   |
+|:----------------------------------------------------:|:-------------------------------------------------------------------------------------:|
+| Set EXITFUNC=thread in msfvenom                      | Prevents crashing the host process when shellcode execution finishes.                 |
+| Avoid RWX Memory – Use VirtualProtect After Write    | Allocate shellcode memory as RW, then change to RX post-write to avoid detection.     |
+| Use NtCreateThreadEx and NtAllocateVirtualMemory     | Replace CreateThread and VirtualAlloc with less detectable low-level NT functions.    |
+| Use Target Process with CLR and HTTPS (Not calc.exe) | Inject into trusted processes that already load .NET and perform HTTPS comms.         |
+| Use HTA/VBS/JS Scripts Instead of Macros             | Utilize trusted scripting languages for stealthy execution (e.g., mshta.exe).         |
+| MSBuild Execution Considerations                     | Understand trade-offs when using msbuild.exe for execution (e.g., logging noise).     |
+| API Hashing                                          | Obfuscate WinAPI names using hashing to avoid detection by string or signature scans. |
+| Manual PE Parsing via PEB                            | Locate module/function addresses manually by walking the Process Environment Block.   |
+| Custom LoadLibrary and GetProcAddress                | Implement these APIs manually to avoid IAT population and signature-based detection.  |
+| Avoiding P/Invoke with DirtyCLR / SharpWhispers      | Avoid calling WinAPI directly in .NET. Use internal CLR manipulation techniques.      |
+| AMSI and ETW Bypass or Patch                         | Disable or patch Windows anti-malware and logging interfaces to reduce detection.     |
+| Indirect Syscalls and Stack Spoofing                 | Invoke syscalls by bypassing userland hooks; optionally spoof call stack for stealth. |
+| Chunked Memory Writes                                | Write shellcode in small segments to avoid large memory operation detection.          |
+| PE Header Stomping                                   | Overwrite PE headers in memory to hinder analysis and memory scanning tools.          |
