@@ -2,7 +2,7 @@
 
 ## Overview
 
-This C# program is a minimalist shellcode loader designed to be executed using `MSBuild.exe` as part of a **Living Off the Land Binary (LOLBin)** execution technique. The application simulates a post-exploitation payload launcher that allocates executable memory, decrypts shellcode from an external file, and executes it within the same process via a new thread. This is particularly useful in scenarios that involve bypassing **Microsoft Windows Defender** through memory-only execution and native API calls.
+This C# program is a minimalist shellcode loader designed to be executed using `MSBuild.exe` as part of a **Living Off the Land Binary (LOLBin)** execution technique. The application allocates executable memory, decrypts shellcode from an external file, and executes the malicious payload within the same process via a new thread. This is particularly useful in scenarios that involve bypassing Microsoft Windows Defender through memory-only execution and native API calls.
 
 This tool was developed for **red teaming** and **defensive testing** purposes, and MUST only be used in controlled environments with explicit authorization.
 

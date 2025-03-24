@@ -6,14 +6,14 @@
 		<Configuration>Release</Configuration>
 	</PropertyGroup>
 	<ItemGroup>
-		<Compile Include="setup.cs" />
+		<Compile Include="main.cs" />
 	</ItemGroup>
 
 	<Target Name="Build">
-		<Csc Sources="@(Compile)" OutputAssembly="setup.exe" />
+		<Csc Sources="@(Compile)" OutputAssembly="app_name.exe" />
 	</Target>
 
 	<Target Name="Run" DependsOnTargets="Build">
-		<Exec Command="setup.exe" />
+		<Exec Command="app_name.exe" />
 	</Target>
 </Project>
